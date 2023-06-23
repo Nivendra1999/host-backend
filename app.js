@@ -25,6 +25,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/",(req,res)=>{
+    res.setHeader("Access-Control-Allow-Credentials",ture);
+    res.setHeader("Access-Control-Allow-Origin:*");
+});
 const url = "mongodb://nivendravishvakarma:nivendra@ac-7buhfx5-shard-00-00.ooafvjm.mongodb.net:27017,ac-7buhfx5-shard-00-01.ooafvjm.mongodb.net:27017,ac-7buhfx5-shard-00-02.ooafvjm.mongodb.net:27017/mywings?ssl=true&replicaSet=atlas-2oejy5-shard-0&authSource=admin&retryWrites=true&w=majority"
 
 // const url = "mongodb+srv://setbug56:setbug56@cluster0.aqsd1j2.mongodb.net/mywings?retryWrites=true&w=majority"
